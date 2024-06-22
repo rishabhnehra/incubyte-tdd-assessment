@@ -19,4 +19,10 @@ describe("String calculator", () => {
 
     expect(result).toBe(6);
   });
+
+  it("should return error if negative number is encountered", () => {
+    expect(() => stringCalculator("1,-8")).toThrowError(
+      "negative numbers not allowed -8"
+    );
+  });
 });
