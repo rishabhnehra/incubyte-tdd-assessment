@@ -20,9 +20,26 @@ describe("String calculator", () => {
     expect(result).toBe(6);
   });
 
+  it("should return sum of all the numbers in input string with comma and space symbol", () => {
+    const result = stringCalculator("1\n2,3");
+
+    expect(result).toBe(6);
+  });
+
+  it("should return sum of all the numbers in input string with single custom delimiter", () => {
+    const inputs = ["//;\n1;2", "//-\n1-2", "//👋\n1👋2"];
+
+    inputs.map((input) => expect(stringCalculator(input)).toBe(3));
+  });
+
   it("should return error if negative number is encountered", () => {
-    expect(() => stringCalculator("1,-8")).toThrowError(
+    const inputs = ["1, -8", "1, -2, -3, -4"];
+
+    expect(() => stringCalculator(inputs[0])).toThrowError(
       "negative numbers not allowed -8"
+    );
+    expect(() => stringCalculator(inputs[1])).toThrowError(
+      "negative numbers not allowed -2,-3,-4"
     );
   });
 });
