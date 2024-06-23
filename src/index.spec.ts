@@ -26,13 +26,13 @@ describe("String calculator", () => {
     expect(result).toBe(6);
   });
 
-  it("should return sum of all the numbers in input string with single custom delimiter", () => {
+  it("should return sum of all the numbers in input string with custom delimiter", () => {
     const inputs = ["//;\n1;2", "//-\n1-2", "//👋\n1👋2"];
 
     inputs.map((input) => expect(stringCalculator(input)).toBe(3));
   });
 
-  it("should return error if negative number is encountered", () => {
+  it("should throw error if negative numbers are encountered", () => {
     const inputs = ["1, -8", "1, -2, -3, -4"];
 
     expect(() => stringCalculator(inputs[0])).toThrowError(
