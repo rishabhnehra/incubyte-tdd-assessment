@@ -42,4 +42,9 @@ describe("String calculator", () => {
       "negative numbers not allowed -2,-3,-4"
     );
   });
+  it("should do multiplication on having * as second argument", () => {
+    const result = stringCalculator("1,2,3,4", "*");
+
+    expect(result).toBe(24);
+  });
 });
